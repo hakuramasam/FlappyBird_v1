@@ -1,0 +1,195 @@
+@font-face {
+    font-family: 'Retro';
+    src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+}
+
+:root {
+    --primary: #f7931a;
+    --secondary: #212121;
+    --text: #ffffff;
+    --accent: #00ff00;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+    font-family: 'Press Start 2P', cursive;
+    color: var(--text);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #4ec0ca;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+}
+
+.ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-display {
+    margin-top: 20px;
+    font-size: 24px;
+    text-shadow: 2px 2px #000;
+}
+
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border: 4px solid var(--primary);
+    text-align: center;
+    pointer-events: auto;
+    width: 80%;
+}
+
+.btn {
+    background: var(--primary);
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 4px #8a4e00;
+    transition: transform 0.1s;
+}
+
+.btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 #8a4e00;
+}
+
+.leaderboard-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 20;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+}
+
+.leaderboard-list {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+    font-size: 10px;
+    position: relative;
+}
+
+.verified-badge {
+    background: linear-gradient(45deg, #00ff00, #008800);
+    color: black;
+    padding: 2px 4px;
+    font-size: 6px;
+    border-radius: 2px;
+    margin-left: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.claim-banner {
+    background: #f1c40f;
+    color: #000;
+    padding: 8px;
+    font-size: 8px;
+    margin-bottom: 10px;
+    border: 2px dashed #000;
+    text-align: center;
+    cursor: pointer;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.header-info {
+    font-size: 8px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #aaa;
+    text-align: center;
+}
+
+.token-info {
+    color: var(--primary);
+    word-break: break-all;
+}
+
+.countdown {
+    color: var(--accent);
+    margin: 10px 0;
+}
+
+.mobile-tap-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+@media (max-width: 600px) {
+    .btn {
+        font-size: 12px;
+    }
+    .leaderboard-item {
+        font-size: 8px;
+    }
+}
